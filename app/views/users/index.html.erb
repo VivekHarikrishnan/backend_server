@@ -1,0 +1,33 @@
+<div data-role="content">
+    <form method="POST" action="<%= url_for 'http://localhost:3000/users' %>">
+      <input type="hidden" name="id" value="test"/>
+
+
+          <div data-role="fieldcontain">
+            <label for="user[name]" class="fieldLabel">Name</label>
+            <input type="text" id="user[name]" name="user[name]" />
+          </div>
+
+          <div data-role="fieldcontain">
+            <label for="user[father_name]" class="fieldLabel">Father name</label>
+            <input type="text" id="user[father_name]" name="user[father_name]" />
+          </div>
+
+          <div data-role="fieldcontain">
+            <label for="user[profession]" class="fieldLabel">Profession</label>
+            <select id="user[profession]" name="user[profession]">
+              <% @professions.each_pair do |profession_id, profession_name| %>
+              <option value="<%= profession_id %>"><%= profession_name %></option>
+              <% end %>
+            </select>
+          </div>
+
+          <div data-role="fieldcontain">
+            <label for="user[address]" class="fieldLabel">Address</label>
+            <input type="text" id="user[address]" name="user[address]"  />
+          </div>
+
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
