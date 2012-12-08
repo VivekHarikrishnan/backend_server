@@ -1,48 +1,20 @@
-<div data-role="page">
-
-
-  <div data-role="content">
-    <form id="customer_form">
-      
-
-      
-          <div data-role="fieldcontain">
-            <label for="user[name]" class="fieldLabel">Name</label>
-            <input type="text" id="user[name]" name="user[name]"/>
-          </div>
-      
-          <div data-role="fieldcontain">
-            <label for="user[father_name]" class="fieldLabel">Father name</label>
-            <input type="text" id="user[father_name]" name="user[father_name]" />
-          </div>
-      
-          <div data-role="fieldcontain">
-            <label for="user[profession_id]" class="fieldLabel">Profession</label>
-            <select id="user[profession_id]" name="user[profession_id]">
-              <% @professions.each_pair do |profession_id, profession_name| %>
-              <option value="<%= profession_id %>"><%= profession_name %></option>
-              <% end %>
-            </select>
-          </div>
-      
-          <div data-role="fieldcontain">
-            <label for="user[address]" class="fieldLabel">Address</label>
-            <input type="text" id="user[address]" name="user[address]" />
-          </div>
-      
-
-      <input type="submit" value="Upload Customer Details" onclick="submit_customer_details();" />
-    </form>
-  </div>
-
-</div>
-
-<script type="text/javascript">
-function submit_customer_details() {
-  $.ajax({
-          type: "POST",
-          url: "http://shrouded-chamber-6032.herokuapp.com/users",
-          data: $('#customer_form').serialize()
-        });
-}
-</script>
+<table>
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Father Name</td>
+			<td>Profession</td>
+			<td>Address</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.name %></td>
+				<td><%= user.father_name %></td>
+				<td><%= @professions[user.profession_id.to_s] %></td>
+				<td><%= user.address %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
