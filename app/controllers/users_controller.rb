@@ -20,9 +20,15 @@ class UsersController < ApplicationController
     "7" => "Software Engineer","8" => "Teacher", "9" => "Others" }
     @user = User.new(params[:user])
     if @user.save
-      
+      @summary = "Mr. #{@user.name} S/O Mr. #{@user.father_name} is \
+      #{indefinite_articlerize(@professions[@user.profession_id.to_s])} staying at '#{@user.address}'"
     else
       render :action => :new
     end
+  end
+
+  private
+  def indefinite_articlerize(params_word)
+    %w(a e i o u).include?(params_word[0].downcase) ? "an #{params_word}" : "a #{params_word}"
   end
 end
