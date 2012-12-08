@@ -20,10 +20,13 @@ class UsersController < ApplicationController
     "7" => "Software Engineer","8" => "Teacher", "9" => "Others" }
     if params[:apiKey] == "androidAppToRailsAppAPI"
       @user = User.new(params[:user])
+      Rails.logger.info "-------------------#{@user}---------------------------------"
       if @user.save
         @summary = "#{@user.title}. #{@user.name} S/O Mr. #{@user.father_name} is \
         #{indefinite_articlerize(@professions[@user.profession_id.to_s])} staying at '#{@user.address}'"
       else
+      Rails.logger.info "-------------------#{@user.errors.inspect}---------------------------------"
+
         render :action => :new
       end
     else
