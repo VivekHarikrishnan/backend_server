@@ -18,8 +18,7 @@ class User < ActiveRecord::Base
     "3" => "Doctor", "4" => "Engineer", "5" => "Journalist", "6" => "Professor",
     "7" => "Software Engineer","8" => "Teacher", "9" => "Others" }
 
-  	"#{self.title}. #{self.name} #{self.ref} Mr. #{self.father_name} is \
-        #{indefinite_articlerize(@professions[self.profession_id.to_s])} staying at '#{self.address}'"
+  	"#{self.title}. #{self.name} #{self.ref} Mr. #{self.father_name} is #{indefinite_articlerize(@professions[self.profession_id.to_s])} staying at '#{self.address}'"
   end
 
   def indefinite_articlerize(params_word)

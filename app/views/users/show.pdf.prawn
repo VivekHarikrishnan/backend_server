@@ -4,4 +4,5 @@ pdf.text "Father Name: Mr. #{@user.father_name}", :spacing => 16
 pdf.text "Profession: #{@professions[@user.profession_id.to_s]}"
 pdf.text "Address: #{@user.address}"
 pdf.text "Gender: #{@user.gender_to_s}"
+pdf.text "------------------------------------------------------------------------------"
 pdf.text "#{ @user.summary }"
