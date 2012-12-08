@@ -1,18 +1,18 @@
 <table>
 	<thead>
-		<th>
+		<tr>
 			<td>Name</td>
 			<td>Father Name</td>
 			<td>Profession</td>
 			<td>Address</td>
-		</th>
+		</tr>
 	</thead>
 	<tbody>
 		<% @users.each do |user| %>
 			<tr>
 				<td><%= user.name %></td>
 				<td><%= user.father_name %></td>
-				<td><%= @professions[user.profession_id] %></td>
+				<td><%= @professions[user.profession_id.to_s] %></td>
 				<td><%= user.address %></td>
 			</tr>
 		<% end %>
