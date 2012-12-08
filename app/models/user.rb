@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :address, :father_name, :name, :profession_id
+  attr_accessible :address, :father_name, :name, :profession_id, :title, :gender
 
   validates :name, presence: true
   validates :gender, presence: true
