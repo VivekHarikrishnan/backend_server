@@ -39,3 +39,7 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+# gem 'prawn_rails'
+gem "prawn"
+gem "prawnto_2", :require => "prawnto"

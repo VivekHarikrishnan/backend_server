@@ -1,0 +1,25 @@
+<table id="customers">
+	<tr>
+		<td>Name : </td>
+		<td><%= "#{@user.title}. #{@user.name}" %></td>
+	</tr>
+	<tr>
+		<td>Father Name : </td>
+		<td><%= "Mr. #{@user.father_name}" %></td>
+	</tr>
+	<tr>		
+		<td>Profession : </td>
+		<td><%= @professions[@user.profession_id.to_s] %></td>
+	</tr>
+	<tr>		
+		<td>Address : </td>
+		<td><%= @user.address %></td>
+	</tr>
+	<tr>		
+		<td>Gender : </td>
+		<td><%= @user.gender_to_s %></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="text-align: center;"><%= @user.summary %></td>
+	</tr>
+</table>

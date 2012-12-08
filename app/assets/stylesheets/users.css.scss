@@ -3,6 +3,7 @@
 font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 width:100%;
 border-collapse:collapse;
+table-layout: fixed;
 }
 #customers td, #customers th 
 {
@@ -24,4 +25,8 @@ color:#ffffff;
 {
 color:#000000;
 background-color:#EAF2D3;
+}
+
+.pdfIcon {
+	width: 30%;
 }

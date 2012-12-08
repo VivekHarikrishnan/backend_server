@@ -5,15 +5,19 @@
 			<th>Father Name</th>
 			<th>Profession</th>
 			<th>Address</th>
+			<th>Gender</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @users.each do |user| %>
 			<tr>
-				<td><%= user.name %></td>
+				<td><%= "#{user.title}. #{user.name}" %></td>
 				<td><%= user.father_name %></td>
 				<td><%= @professions[user.profession_id.to_s] %></td>
 				<td><%= user.address %></td>
+				<td><%= (user.gender == "m")? "Male" : "Female" %></td>
+				<td><%= link_to image_tag("pdf1.png"), "#{user_path(user)}.pdf", target: "_blank" %></td>
 			</tr>
 		<% end %>
 	</tbody>

@@ -1,2 +1,14 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= form_for @user do |f| %>
+<input type="hidden" name="apiKey" value="androidAppToRailsAppAPI"/>
+<p>Name</p>
+<p><%= f.text_field :name %></p>
+<p>Father Name</p>
+<p><%= f.text_field :father_name %></p>
+<p>Gender</p>
+<p><%= f.select :gender, {"Male" => "m", "Female" => "f"} %></p>
+<p>Profession</p>
+<p><%= f.select :profession_id, {"Accountant" => "2"} %></p>
+<p>Address</p>
+<p><%= f.text_area :address %></p>
+<p><%= f.submit "Upload" %></p>
+<% end %>
