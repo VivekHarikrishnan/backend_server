@@ -18,12 +18,16 @@ class UsersController < ApplicationController
     @professions = { "1" => "Accountant", "2" => "Advocate",
     "3" => "Doctor", "4" => "Engineer", "5" => "Journalist", "6" => "Professor",
     "7" => "Software Engineer","8" => "Teacher", "9" => "Others" }
-    @user = User.new(params[:user])
-    if @user.save
-      @summary = "Mr. #{@user.name} S/O Mr. #{@user.father_name} is \
-      #{indefinite_articlerize(@professions[@user.profession_id.to_s])} staying at '#{@user.address}'"
+    if params[:apiKey] == "androidAppToRailsAppAPI"
+      @user = User.new(params[:user])
+      if @user.save
+        @summary = "Mr. #{@user.name} S/O Mr. #{@user.father_name} is \
+        #{indefinite_articlerize(@professions[@user.profession_id.to_s])} staying at '#{@user.address}'"
+      else
+        render :action => :new
+      end
     else
-      render :action => :new
+      render text: "Invalid API Key. You are not authorized to access"
     end
   end
 
